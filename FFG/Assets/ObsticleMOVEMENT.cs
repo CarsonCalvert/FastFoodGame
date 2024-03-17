@@ -6,7 +6,13 @@ public class ObsticleMOVEMENT : MonoBehaviour
 {
     public float speed = 10f;
     public float acceleration = 0.01f;
-    public GameObject player;
+    private GameObject player;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     // Update is called once per frame
     void Update()

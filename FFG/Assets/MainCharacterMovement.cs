@@ -31,6 +31,7 @@ public class MainCharacterMovement : MonoBehaviour
     // This function is called when the character lands after jumping
     void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Collided with: " + collision.gameObject.name);
         isJumping = false;
     }
 }
