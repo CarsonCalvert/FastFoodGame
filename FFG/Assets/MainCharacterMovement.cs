@@ -18,9 +18,6 @@ public class MainCharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float move = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(move * speed, rb.velocity.y);
-
         if (Input.GetButtonDown("Jump") && !isJumping)
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
