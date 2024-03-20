@@ -8,72 +8,36 @@ public class Spawner : MonoBehaviour
     public GameObject handPrefab;
     public int initialObstaclePoolSize = 10;
     private List<GameObject> obstaclePool;
-    private float spawnCooldown = 1.5f;
-    public float spawnAcceleration = 0.1f;
+    public float spawnDelay = 2f; // Delay between each spawn
+    public float spawnHeight = 0f; // Height at which to spawn obstacles
+    public float spawnDistance = 5f; // Distance between the last original object and the point where clones stop being generated
     private float nextSpawnTime;
-    public float spawnHeight = 0f;
-    public float handSpawnHeight = 1f;
+    private GameObject lastObstacle;
+    private int activeObjectsCount = 0; // The count of active objects in the hierarchy
+    public float obstacleSpeed = 1f; // Initial speed of the obstacles
+    public float speedIncreaseFactor = 0.0001f; // How much to increase the speed each time an obstacle is spawned
 
     void Start()
     {
+        // Start the spawning coroutine with a delay
+        StartCoroutine(StartSpawningWithDelay(spawnDelay));
+    }
+
+    IEnumerator StartSpawningWithDelay(float delay)
+    {
+        // Wait for the specified delay
+        yield return new WaitForSeconds(delay);
+
         // Create the initial obstacle pool
         obstaclePool = new List<GameObject>();
         for (int i = 0; i < initialObstaclePoolSize; i++)
         {
-            // Choose a random obstacle prefab
-            int index = Random.Range(0, obstaclePrefabs.Length);
-            GameObject obstaclePrefab = obstaclePrefabs[index];
-
-            GameObject obstacle = Instantiate(obstaclePrefab);
-            obstacle.SetActive(false);
-            obstaclePool.Add(obstacle);
+            SpawnObstacle();
+            yield return new WaitForSeconds(spawnDelay);
         }
-
-        // Spawn the first clone immediately
-        SpawnObstacle();
-
-        // Set the next spawn time to 2 seconds from now
-        nextSpawnTime = Time.time + spawnCooldown;
 
         // Start the hand spawning coroutine
         StartCoroutine(SpawnHands());
-    }
-
-    void Update()
-    {
-        // Check if it's time to spawn a new obstacle
-        if (Time.time > nextSpawnTime)
-        {
-            // Spawn a new obstacle
-            SpawnObstacle();
-
-            // Decrease the spawn cooldown, but don't let it go below 0.5 seconds
-            spawnCooldown = Mathf.Max(spawnCooldown - spawnAcceleration * Time.deltaTime, 0.5f);
-
-            // Set the next spawn time
-            nextSpawnTime = Time.time + spawnCooldown;
-        }
-    }
-
-    void SpawnObstacle()
-    {
-        // Find an inactive obstacle in the pool
-        GameObject obstacle = obstaclePool.Find(o => !o.activeInHierarchy);
-
-        // If there are no inactive obstacles, create a new one
-        if (obstacle == null)
-        {
-            // Choose a random obstacle prefab
-            int index = Random.Range(0, obstaclePrefabs.Length);
-            GameObject obstaclePrefab = obstaclePrefabs[index];
-
-            obstacle = Instantiate(obstaclePrefab);
-            obstaclePool.Add(obstacle);
-        }
-
-        // Activate the obstacle and set its position
-        obstacle.SetActive(true);
-        obstacle.transform.position = new Vector2(transform.position.x, spawnHeight);
     }
 
     IEnumerator SpawnHands()
@@ -81,25 +45,72 @@ public class Spawner : MonoBehaviour
         while (true)
         {
             // Wait for a random time between 10 and 15 seconds
-            yield return new WaitForSeconds(Random.Range(10f, 15f));
+            yield return new WaitForSeconds(Random.Range(10, 15));
 
-            // Spawn 1-3 hands
+            // Spawn between 1 and 3 hands
             int numHands = Random.Range(1, 4);
             for (int i = 0; i < numHands; i++)
             {
                 SpawnHand();
+                yield return new WaitForSeconds(spawnDelay);
             }
         }
     }
 
     void SpawnHand()
     {
-        // Instantiate a new hand
-        GameObject hand = Instantiate(handPrefab);
+        // Instantiate a new hand and set its position
+        GameObject hand = Instantiate(handPrefab, new Vector3(transform.position.x, spawnHeight, transform.position.z), Quaternion.identity);
 
-        // Set the hand's position
-        float spawnX = transform.position.x;
-        float spawnY = handSpawnHeight;
-        hand.transform.position = new Vector2(spawnX, spawnY);
+        // Add the hand to the obstacle pool
+        obstaclePool.Add(hand);
+
+        // Update the last obstacle and next spawn time
+        lastObstacle = hand;
+        nextSpawnTime = Time.time + spawnDelay;
+
+        // Increase the count of active objects
+        activeObjectsCount++;
+
+        // Increase the speed of the obstacles
+        obstacleSpeed += speedIncreaseFactor;
+    }
+
+    void Update()
+    {
+        // Check if it's time to spawn a new obstacle and if the last obstacle is far enough away
+        if (Time.time > nextSpawnTime && lastObstacle != null && lastObstacle.transform.position.x - transform.position.x > spawnDistance)
+        {
+            SpawnObstacle();
+        }
+    }
+
+    void SpawnObstacle()
+    {
+        // Choose a random obstacle prefab
+        int index = Random.Range(0, obstaclePrefabs.Length);
+        GameObject obstaclePrefab = obstaclePrefabs[index];
+
+        // Instantiate a new obstacle and set its position
+        GameObject obstacle = Instantiate(obstaclePrefab, new Vector3(transform.position.x, spawnHeight, transform.position.z), Quaternion.identity);
+
+        // Add the obstacle to the obstacle pool
+        obstaclePool.Add(obstacle);
+
+        // Update the last obstacle and next spawn time
+        lastObstacle = obstacle;
+        nextSpawnTime = Time.time + spawnDelay;
+
+        // Increase the count of active objects
+        activeObjectsCount++;
+
+        // Increase the speed of the obstacles
+        obstacleSpeed += speedIncreaseFactor;
+    }
+
+    // This method should be called when an obstacle is deactivated or destroyed
+    public void OnObstacleDeactivated()
+    {
+        activeObjectsCount--;
     }
 }
