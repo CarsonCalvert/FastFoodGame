@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,21 +5,30 @@ public class MainCharacterMovement : MonoBehaviour
 {
     public float jumpForce = 5f;
     public float jumpSpeed = 2f;
+    public AudioClip jumpSound; // The sound that will play when the character jumps
     private bool isJumping = false;
     private Rigidbody2D rb;
     private float originalGravityScale; // To store the original gravity scale
     private Animator animator; // Animator component
+    private AudioSource audioSource; // AudioSource component
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>(); // Get the Animator component
+        audioSource = GetComponent<AudioSource>(); // Get the AudioSource component
         originalGravityScale = rb.gravityScale; // Store the original gravity scale
 
         // Add this line to check if the animator component is null
         if (animator == null)
         {
             Debug.LogError("Animator component not found on this gameobject");
+        }
+
+        // Add this line to check if the AudioSource component is null
+        if (audioSource == null)
+        {
+            Debug.LogError("AudioSource component not found on this gameobject");
         }
     }
 
@@ -36,6 +44,9 @@ public class MainCharacterMovement : MonoBehaviour
             animator.SetBool("isJumping", true); // Set the jumping parameter to true when the character starts jumping
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
             rb.gravityScale = originalGravityScale / jumpSpeed; // Adjust the gravity scale based on the jump speed
+
+            // Play the jump sound
+            audioSource.PlayOneShot(jumpSound);
         }
     }
 

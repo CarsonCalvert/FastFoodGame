@@ -1,0 +1,487 @@
+fileFormatVersion: 2
+guid: 9fe4b6fe9d0552442ba39e18d6e04e8a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fast-Food-Toy-Terrain_Sprite_Animation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8400
+        width: 4800
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f2f0c3844ca9714280c4e87d5cf5999
+      internalID: -1486132755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast-Food-Toy-Terrain_Sprite_Animation_1
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 8400
+        width: 4800
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd80e2551bf5a454caf54b2274f487f5
+      internalID: -571041002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast-Food-Toy-Terrain_Sprite_Animation_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7200
+        width: 4800
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7beab101ff0623943bd3500e0b15cf62
+      internalID: 1231659547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast-Food-Toy-Terrain_Sprite_Animation_3
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 7200
+        width: 4800
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66e5ab1cfec771946a5676856b328399
+      internalID: -628844071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast-Food-Toy-Terrain_Sprite_Animation_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6000
+        width: 4800
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4a943f3f35daf04e83f1d0c85158a82
+      internalID: 582990387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast-Food-Toy-Terrain_Sprite_Animation_5
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 6000
+        width: 4800
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89a80bbb370b29d4ea17c6b740c621fd
+      internalID: 33217641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast-Food-Toy-Terrain_Sprite_Animation_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4800
+        width: 4800
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4712c117cf529ab42bf8a95288d483d0
+      internalID: 1451828874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast-Food-Toy-Terrain_Sprite_Animation_7
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 4800
+        width: 4800
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7afe844edc819284ab163e7e2137aaec
+      internalID: 1264213030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast-Food-Toy-Terrain_Sprite_Animation_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3600
+        width: 4800
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a488476fd3ce389428606aaaaa7d285b
+      internalID: 797290263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast-Food-Toy-Terrain_Sprite_Animation_9
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 3600
+        width: 4800
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b62dd4b66eb88f4e913925523f04191
+      internalID: 1484769842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast-Food-Toy-Terrain_Sprite_Animation_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2400
+        width: 4800
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a45b4aa07d8a4bd4d99a7e472acb72be
+      internalID: 1278204990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast-Food-Toy-Terrain_Sprite_Animation_11
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 2400
+        width: 4800
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 680b7f5149262cc49b52e8cbe439b999
+      internalID: -308921119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast-Food-Toy-Terrain_Sprite_Animation_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1200
+        width: 4800
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c65da852a96d3f4fb0b18752943faa4
+      internalID: 1405743114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast-Food-Toy-Terrain_Sprite_Animation_13
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 1200
+        width: 4800
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 770167958b65f2d4a9a9de7d29bb39c1
+      internalID: 742565435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast-Food-Toy-Terrain_Sprite_Animation_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 4800
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1ab18640b0e8244c94fc0e2935df39a
+      internalID: 2096108070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fast-Food-Toy-Terrain_Sprite_Animation_15
+      rect:
+        serializedVersion: 2
+        x: 4800
+        y: 0
+        width: 4800
+        height: 1200
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4e099aaf0e8c0e478842c3c11a976f5
+      internalID: -1290840828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Fast-Food-Toy-Terrain_Sprite_Animation_0: -1486132755
+      Fast-Food-Toy-Terrain_Sprite_Animation_1: -571041002
+      Fast-Food-Toy-Terrain_Sprite_Animation_10: 1278204990
+      Fast-Food-Toy-Terrain_Sprite_Animation_11: -308921119
+      Fast-Food-Toy-Terrain_Sprite_Animation_12: 1405743114
+      Fast-Food-Toy-Terrain_Sprite_Animation_13: 742565435
+      Fast-Food-Toy-Terrain_Sprite_Animation_14: 2096108070
+      Fast-Food-Toy-Terrain_Sprite_Animation_15: -1290840828
+      Fast-Food-Toy-Terrain_Sprite_Animation_2: 1231659547
+      Fast-Food-Toy-Terrain_Sprite_Animation_3: -628844071
+      Fast-Food-Toy-Terrain_Sprite_Animation_4: 582990387
+      Fast-Food-Toy-Terrain_Sprite_Animation_5: 33217641
+      Fast-Food-Toy-Terrain_Sprite_Animation_6: 1451828874
+      Fast-Food-Toy-Terrain_Sprite_Animation_7: 1264213030
+      Fast-Food-Toy-Terrain_Sprite_Animation_8: 797290263
+      Fast-Food-Toy-Terrain_Sprite_Animation_9: 1484769842
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
