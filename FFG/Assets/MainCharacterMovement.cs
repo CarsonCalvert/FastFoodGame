@@ -1,67 +1,118 @@
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class MainCharacterMovement : MonoBehaviour
 {
     public float jumpForce = 5f;
     public float jumpSpeed = 2f;
-    public AudioClip jumpSound; // The sound that will play when the character jumps
-    private bool isJumping = false;
+    public bool isJumping = false;
+    public Sprite jumpSprite;
+    public Sprite normalSprite;
+    public AudioClip jumpSound;
+    public float animationStopTime = 1.5f;
+
     private Rigidbody2D rb;
-    private float originalGravityScale; // To store the original gravity scale
-    private Animator animator; // Animator component
-    private AudioSource audioSource; // AudioSource component
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
+    private AudioSource audioSource;
+    private float originalGravityScale;
+    private Vector3 originalSpriteScale; // The original scale of the sprite
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>(); // Get the Animator component
-        audioSource = GetComponent<AudioSource>(); // Get the AudioSource component
-        originalGravityScale = rb.gravityScale; // Store the original gravity scale
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
-        // Add this line to check if the animator component is null
+        if (rb == null)
+        {
+            Debug.LogError("Rigidbody2D component not found on this gameobject");
+        }
+
         if (animator == null)
         {
             Debug.LogError("Animator component not found on this gameobject");
         }
 
-        // Add this line to check if the AudioSource component is null
+        if (spriteRenderer == null)
+        {
+            Debug.LogError("SpriteRenderer component not found on this gameobject");
+        }
+
         if (audioSource == null)
         {
             Debug.LogError("AudioSource component not found on this gameobject");
         }
+        originalSpriteScale = spriteRenderer.transform.localScale;
+        originalGravityScale = rb.gravityScale;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Debug.Log("Update method called");
-
         if (Input.GetButtonDown("Jump") && !isJumping)
         {
-            Debug.Log("Jump button pressed and character is not already jumping");
             isJumping = true;
-            animator.SetBool("isJumping", true); // Set the jumping parameter to true when the character starts jumping
+            animator.SetBool("isJumping", true);
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-            rb.gravityScale = originalGravityScale / jumpSpeed; // Adjust the gravity scale based on the jump speed
+            rb.gravityScale = originalGravityScale / jumpSpeed;
 
             // Play the jump sound
             audioSource.PlayOneShot(jumpSound);
+            spriteRenderer.sprite = jumpSprite;
+            spriteRenderer.transform.localScale = jumpSpriteScale;
+            // Stop the animations
+            StartCoroutine(StopAnimations());
+        }
+
+        if (isJumping)
+        {
+            spriteRenderer.sprite = jumpSprite;
         }
     }
 
-    // This function is called when the character lands after jumping
+    IEnumerator StopAnimations()
+    {
+        // Stop the animations
+        animator.enabled = false;
+
+        // Wait for the specified time
+        yield return new WaitForSeconds(animationStopTime);
+
+        // Resume the animations
+        animator.enabled = true;
+
+        // Change the sprite back to the normal sprite
+        spriteRenderer.sprite = normalSprite;
+        priteRenderer.transform.localScale = originalSpriteScale;
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collided with: " + collision.gameObject.name);
         isJumping = false;
-        rb.gravityScale = originalGravityScale; // Reset the gravity scale when the character lands
-        animator.SetBool("isJumping", false); // Set the jumping parameter to false when the character lands
+        rb.gravityScale = originalGravityScale;
+        animator.SetBool("isJumping", false);
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Terrain")
+        {
+            Debug.Log("Collision ended with Terrain");
+            audioSource.PlayOneShot(jumpSound);
+            if (audioSource.isPlaying)
+            {
+                Debug.Log("AudioSource is playing");
+            }
+            else
+            {
+                Debug.Log("AudioSource is not playing");
+            }
+        }
     }
 
     public void onlanding()
     {
-        Debug.Log("onlanding method called");
-        animator.SetBool("isJumping", false); // Set the jumping parameter to false when the character lands
+        animator.SetBool("isJumping", false);
     }
 }

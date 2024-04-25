@@ -5,6 +5,15 @@ using UnityEngine.SceneManagement; // Required for scene management
 
 public class Replay : MonoBehaviour
 {
+    public AudioSource audioSource; // The AudioSource component
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Play the game over sound
+        audioSource.Play();
+    }
+
     // Update is called once per frame
     void Update()
     {
