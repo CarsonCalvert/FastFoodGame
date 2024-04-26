@@ -44,7 +44,7 @@ public class MainCharacterMovement : MonoBehaviour
         {
             Debug.LogError("AudioSource component not found on this gameobject");
         }
-        originalSpriteScale = spriteRenderer.transform.localScale;
+        //originalSpriteScale = spriteRenderer.transform.localScale;
         originalGravityScale = rb.gravityScale;
     }
 
@@ -59,8 +59,8 @@ public class MainCharacterMovement : MonoBehaviour
 
             // Play the jump sound
             audioSource.PlayOneShot(jumpSound);
-            spriteRenderer.sprite = jumpSprite;
-            spriteRenderer.transform.localScale = jumpSpriteScale;
+            //spriteRenderer.sprite = jumpSprite;
+            //spriteRenderer.transform.localScale = jumpSpriteScale;
             // Stop the animations
             StartCoroutine(StopAnimations());
         }
@@ -83,8 +83,8 @@ public class MainCharacterMovement : MonoBehaviour
         animator.enabled = true;
 
         // Change the sprite back to the normal sprite
-        spriteRenderer.sprite = normalSprite;
-        priteRenderer.transform.localScale = originalSpriteScale;
+        //spriteRenderer.sprite = normalSprite;
+        //spriteRenderer.transform.localScale = originalSpriteScale;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
